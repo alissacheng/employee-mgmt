@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 function App() {
   const [allEmployees, setAllEmployees] = useState([])
   const [employees, setEmployees] = useState([])
+  const [searchInput, setSearchInput] = useState("")
 
   return (
     <div className="App container">
@@ -16,7 +17,9 @@ function App() {
           allEmployees,
           setAllEmployees,
           employees,
-          setEmployees
+          setEmployees,
+          searchInput,
+          setSearchInput
         }}
       >
         <div>

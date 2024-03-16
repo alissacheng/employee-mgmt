@@ -6,11 +6,26 @@ import UserContext from "../../lib/UserContext";
 import employeeFormInputData from "../../lib/employeeFormInputData";
 
 const EmployeeList = () => {
-    const {setAllEmployees, employees, setEmployees} = useContext(UserContext);
+    const {setAllEmployees, employees, setEmployees, searchInput} = useContext(UserContext);
     const [page, setPage] = useState(1)
     const pageSize = 100
     const start = (page -1) * pageSize
     const end = page * pageSize
+
+    const sortByName =  (array) => {
+        return array.sort((a, b) => {
+            const nameA = a.name.toUpperCase();
+            const nameB = b.name.toUpperCase();
+        
+            if (nameA < nameB) {
+                return -1;
+            }
+            if (nameA > nameB) {
+                return 1;
+            }
+            return 0;
+        });
+    }
 
     const fetchEmployees = async () => {
         try {
@@ -20,8 +35,9 @@ const EmployeeList = () => {
             Papa.parse(csvData, {
                 header: true,
                 complete: (result) => {
-                    setEmployees(result.data)
-                    setAllEmployees(result.data)
+                    const sortedEmployees = sortByName(result.data)
+                    setEmployees(sortedEmployees)
+                    setAllEmployees(sortedEmployees)
                 }
             });
         } catch (error) {
@@ -58,6 +74,7 @@ const EmployeeList = () => {
                         key={employee.id} 
                         employee={employee}
                         handleDelete={handleDelete}
+                        searchInput={searchInput}
                     />)
                 })}
                 </tbody>

@@ -11,7 +11,7 @@ const Filter = ({ handleCheck, checkedItems }) => {
                     type="checkbox"
                     id={option.value}
                     value={option.value}
-                    checked={checkedItems.indexOf(option.value) > -1 || false}
+                    checked={checkedItems.includes(option.value) || false}
                     onChange={handleCheck}
                 />
                 <label classvalue="form-check-label" htmlFor={option.id}>
