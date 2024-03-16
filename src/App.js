@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import EmployeeForm from './components/EmployeeForm';
+import EmployeeList from './components/EmployeeList';
+import SearchFilter from './components/SearchFilter';
+import UserContext from './lib/UserContext';
+import React, { useState } from 'react';
 
 function App() {
+  const [allEmployees, setAllEmployees] = useState([])
+  const [employees, setEmployees] = useState([])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <UserContext.Provider
+        value={{
+          allEmployees,
+          setAllEmployees,
+          employees,
+          setEmployees
+        }}
+      >
+        <div>
+          <EmployeeForm />
+          <SearchFilter />
+          <EmployeeList />
+        </div>
+      </UserContext.Provider>
     </div>
   );
 }
