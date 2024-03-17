@@ -1,5 +1,5 @@
-const TextInput = ({name, label, type, handleChange, value}) => {
-    console.log("render", name)
+const TextInput = ({name, label, type, handleChange, value, error}) => {
+    // console.log("render", name)
     return(
         <div className="form-floating mb-3">
             <input
@@ -11,8 +11,10 @@ const TextInput = ({name, label, type, handleChange, value}) => {
                 onChange={handleChange}
                 placeholder={label}
                 value={value}
+                min={0}
             />
             <label htmlFor={name + "-input"}>{label}</label>
+            {error && <p>{error}</p>}
         </div>
     )
 }

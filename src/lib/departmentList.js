@@ -1,6 +1,6 @@
 const departmentList = [
     {
-        label: "Human Resources",
+        label: "HR",
         value: "hr"
     },
     {

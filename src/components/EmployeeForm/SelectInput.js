@@ -1,4 +1,4 @@
-const SelectInput = ({options, name, label, handleChange, value}) => {
+const SelectInput = ({options, name, label, handleChange, value, error}) => {
     return(
         <div className="form-floating mb-3">
             <select
@@ -22,6 +22,7 @@ const SelectInput = ({options, name, label, handleChange, value}) => {
                 })}
             </select>
             <label htmlFor={name + "-input"}>{label}</label>
+            {error && <p>{error}</p>}
         </div>
     )
 }

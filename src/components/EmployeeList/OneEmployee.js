@@ -18,7 +18,7 @@ const OneEmployee = ({ employee, handleDelete, searchInput }) => {
                 {employee.position}
             </td>
             <td className="col">
-                {employee.department !== 'HR' ? employee.department : "Human Resources"}
+                {employee.department}
             </td>
             <td className="col">
                 ${parseInt(employee.salary).toLocaleString()}

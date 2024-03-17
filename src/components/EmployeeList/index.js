@@ -8,7 +8,7 @@ import employeeFormInputData from "../../lib/employeeFormInputData";
 const EmployeeList = () => {
     const {setAllEmployees, employees, setEmployees, searchInput} = useContext(UserContext);
     const [page, setPage] = useState(1)
-    const pageSize = 100
+    const pageSize = 50
     const start = (page -1) * pageSize
     const end = page * pageSize
 
@@ -64,7 +64,7 @@ const EmployeeList = () => {
             <table className="table">
                 <thead>
                     <tr>
-                        {employeeFormInputData.map(({label})=><th scope="col">{label}</th>)}
+                        {employeeFormInputData.map(({label})=><th scope="col" key={label}>{label}</th>)}
                     </tr>
                 </thead>
                 <tbody>

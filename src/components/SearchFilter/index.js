@@ -5,7 +5,6 @@ import Filter from "./Filter";
 
 const SearchFilter = () => {
     const {allEmployees, setEmployees, searchInput, setSearchInput} = useContext(UserContext);
-    // const [searchInput, setSearchInput] = useState("")
     const [checkedItems, setCheckedItems] = useState([]);
 
     const handleCheck = (event) => {
@@ -16,21 +15,24 @@ const SearchFilter = () => {
     };
 
     const handleChange = (e) => {
-        const search = (e.target.value).toLowerCase()
+        const search = (e.target.value).toLowerCase().trim()
         setSearchInput(search);
         filterEmployees(search, checkedItems);
     }
 
+    const joinArrayFromIndex = (array, index) => array.slice(index).join(" ");
+
     const filterEmployees = (search, checked) => {
-        const joinArrayFromIndex = (array, index) => array.slice(index).join(" ");
         const firstWordInput = search.split(" ")[0]
 
         const newEmployees = allEmployees.filter(({ name, department }) => {
             const nameArr = name.toLowerCase().split(" ")
-            const startsWithAnyName = nameArr.filter(name=>name.startsWith(firstWordInput))
-            const startIndex = nameArr.indexOf(startsWithAnyName[0])
-            const joinedStr = startsWithAnyName.length ? joinArrayFromIndex(nameArr, startIndex) : ""
+            const startsWithName = nameArr.find(name=>name.startsWith(firstWordInput))
 
+            if(!startsWithName) return false
+
+            const joinedStr = joinArrayFromIndex(nameArr, nameArr.indexOf(startsWithName))
+            // Filter eployees by departments selected, or remove filter if none were selected
             const filterDepartments = checked.length ? checked.includes(department.toLowerCase()) : true;
             return joinedStr.startsWith(search) && filterDepartments;
         });

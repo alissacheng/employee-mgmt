@@ -3,7 +3,7 @@ import departmentList from "./departmentList"
 const employeeFormInputData = [
     {
         name: "name",
-        label: "Name",
+        label: "Full Name",
         type: "text"
     },
     {
