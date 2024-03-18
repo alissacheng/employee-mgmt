@@ -1,7 +1,6 @@
 import departmentList from "../../lib/departmentList";
 
 const Filter = ({ handleCheck, checkedItems }) => {
-
     return(
         <div classvalue="col">
             {departmentList.map((option) => (

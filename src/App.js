@@ -14,10 +14,10 @@ function App() {
       <UserContext.Provider
         value={{
           allEmployees,
-          setAllEmployees
+          setAllEmployees,
         }}
       >
-        <div>
+        <div className='container'>
           <NavigationBar />
           <EmployeeForm />
           <EmployeeList />

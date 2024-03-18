@@ -7,7 +7,7 @@ const Pagination = ({ updatePage, page, totalPages }) => {
                     {"<"}
                 </button>
             )}
-            <p>page {page} of {totalPages}</p>
+            {totalPages && <p>page {page} of {totalPages}</p>}
             {page <  totalPages && (
                 <button onClick={()=>{updatePage(1)}}>
                     {">"}

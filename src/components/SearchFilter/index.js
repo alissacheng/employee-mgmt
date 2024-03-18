@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react"
+import { useState, useContext, useEffect, useCallback } from "react"
 import Search from "./Search"
 import UserContext from "../../lib/UserContext";
 import Filter from "./Filter";
@@ -9,25 +9,23 @@ const SearchFilter = ({ updateSearch, updateEmployees }) => {
     const [checkedItems, setCheckedItems] = useState([]);
     const [searchInput, setSearchInput] = useState("")
 
-    const handleCheck = (event) => {
-        const { value: department, checked: isChecked } = event.target;
+    const handleCheck = useCallback((e) => {
+        const { value: department, checked: isChecked } = e.target;
         const newCheckedItems = isChecked ? [...checkedItems, department] : checkedItems.filter(item => item !== department);
         setCheckedItems(newCheckedItems);
-        updateEmployees(filteredEmployees(searchInput, newCheckedItems, allEmployees));
-    };
+    }, [checkedItems]);
 
     const handleChange = (e) => {
         const search = (e.target.value).toLowerCase().trim()
         setSearchInput(search);
         updateSearch(search);
-        updateEmployees(filteredEmployees(search, checkedItems, allEmployees));
     }
 
-    useEffect(()=> {
-        if(allEmployees.length){
+    useEffect(() => {
+        if (allEmployees.length) {
             updateEmployees(filteredEmployees(searchInput, checkedItems, allEmployees));
         }
-    }, [allEmployees])
+    }, [allEmployees, searchInput, checkedItems]);
 
     return(
         <div className="row">

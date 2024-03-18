@@ -1,19 +1,13 @@
 import { useEffect, useState, useContext } from "react";
 import Papa from 'papaparse';
-import OneEmployee from "./OneEmployee";
-import Pagination from "./Pagination";
 import UserContext from "../../lib/UserContext";
-import employeeFormInputData from "../../lib/employeeFormInputData";
 import SearchFilter from "../SearchFilter";
+import EmployeesTable from "./EmployeesTable";
 
 const EmployeeList = () => {
     const {setAllEmployees, allEmployees} = useContext(UserContext);
-    const [page, setPage] = useState(1)
     const [searchInput, setSearchInput] = useState("")
     const [employees, setEmployees] = useState([])
-    const pageSize = 50
-    const start = (page -1) * pageSize
-    const end = page * pageSize
 
     const sortByName =  (array) => {
         return array.sort((a, b) => {
@@ -53,6 +47,7 @@ const EmployeeList = () => {
     }, [])
 
     const handleDelete = (id) => {
+        console.log(id)
         setAllEmployees(
             allEmployees.filter((employee)=> employee.id !== id)
         );
@@ -64,28 +59,10 @@ const EmployeeList = () => {
                 updateSearch={(input)=>setSearchInput(input)}
                 updateEmployees={(list)=>setEmployees(sortByName(list))}
             />
-            <table className="table table-borderless table-hover">
-                <thead>
-                    <tr>
-                        {employeeFormInputData.map(({label})=><th scope="col" key={label}>{label}</th>)}
-                    </tr>
-                </thead>
-                <tbody>
-                {(employees.slice(start, end)).map((employee)=>{
-                    return (
-                    <OneEmployee 
-                        key={employee.id} 
-                        employee={employee}
-                        handleDelete={handleDelete}
-                        searchInput={searchInput}
-                    />)
-                })}
-                </tbody>
-            </table>
-            <Pagination
-                updatePage={(update)=>setPage(page+update)}
-                page={page}
-                totalPages={Math.ceil(employees.length/pageSize)}
+            <EmployeesTable
+                searchInput={searchInput}
+                employees={employees}
+                handleDelete={handleDelete}
             />
         </div>
     )
