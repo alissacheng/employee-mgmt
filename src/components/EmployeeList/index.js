@@ -4,10 +4,13 @@ import OneEmployee from "./OneEmployee";
 import Pagination from "./Pagination";
 import UserContext from "../../lib/UserContext";
 import employeeFormInputData from "../../lib/employeeFormInputData";
+import SearchFilter from "../SearchFilter";
 
 const EmployeeList = () => {
-    const {setAllEmployees, employees, setEmployees, searchInput} = useContext(UserContext);
+    const {setAllEmployees, allEmployees} = useContext(UserContext);
     const [page, setPage] = useState(1)
+    const [searchInput, setSearchInput] = useState("")
+    const [employees, setEmployees] = useState([])
     const pageSize = 50
     const start = (page -1) * pageSize
     const end = page * pageSize
@@ -50,18 +53,18 @@ const EmployeeList = () => {
     }, [])
 
     const handleDelete = (id) => {
-        setEmployees(
-            employees.filter((employee)=> employee.id !== id)
+        setAllEmployees(
+            allEmployees.filter((employee)=> employee.id !== id)
         );
     }
 
-    const updatePage = (update) => {
-        setPage(page + update)
-    }
-    
     return(
         <div className="container">
-            <table className="table">
+            <SearchFilter 
+                updateSearch={(input)=>setSearchInput(input)}
+                updateEmployees={(list)=>setEmployees(sortByName(list))}
+            />
+            <table className="table table-borderless table-hover">
                 <thead>
                     <tr>
                         {employeeFormInputData.map(({label})=><th scope="col" key={label}>{label}</th>)}
@@ -80,7 +83,7 @@ const EmployeeList = () => {
                 </tbody>
             </table>
             <Pagination
-                updatePage={updatePage}
+                updatePage={(update)=>setPage(page+update)}
                 page={page}
                 totalPages={Math.ceil(employees.length/pageSize)}
             />

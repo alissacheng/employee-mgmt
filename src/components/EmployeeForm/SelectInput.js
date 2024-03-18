@@ -18,7 +18,7 @@ const SelectInput = ({options, name, label, handleChange, value, error}) => {
                     Select {label}
                 </option>
                 {options.map((item)=>{
-                    return <option key={item.value} value={item.value}>{item.label}</option>
+                    return <option key={item.name} value={item.label}>{item.label}</option>
                 })}
             </select>
             <label htmlFor={name + "-input"}>{label}</label>

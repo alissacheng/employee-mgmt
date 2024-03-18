@@ -1,23 +1,23 @@
 const departmentList = [
     {
         label: "HR",
-        value: "hr"
+        name: "hr"
     },
     {
         label: "Finance",
-        value: "finance"
+        name: "finance"
     },
     {
         label: "Marketing",
-        value: "marketing"
+        name: "marketing"
     },
     {
         label: "IT",
-        value: "it"
+        name: "it"
     },
     {
         label: "Engineering",
-        value: "engineering"
+        name: "engineering"
     },
 ]
 

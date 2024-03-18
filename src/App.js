@@ -8,25 +8,18 @@ import React, { useState } from 'react';
 
 function App() {
   const [allEmployees, setAllEmployees] = useState([])
-  const [employees, setEmployees] = useState([])
-  const [searchInput, setSearchInput] = useState("")
 
   return (
     <div>
       <UserContext.Provider
         value={{
           allEmployees,
-          setAllEmployees,
-          employees,
-          setEmployees,
-          searchInput,
-          setSearchInput
+          setAllEmployees
         }}
       >
         <div>
           <NavigationBar />
           <EmployeeForm />
-          <SearchFilter />
           <EmployeeList />
         </div>
       </UserContext.Provider>

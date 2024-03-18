@@ -5,18 +5,18 @@ const Filter = ({ handleCheck, checkedItems }) => {
     return(
         <div classvalue="col">
             {departmentList.map((option) => (
-                <div key={option.value} classvalue="form-check">
-                <input
-                    classvalue="form-check-input"
-                    type="checkbox"
-                    id={option.value}
-                    value={option.value}
-                    checked={checkedItems.includes(option.value) || false}
-                    onChange={handleCheck}
-                />
-                <label classvalue="form-check-label" htmlFor={option.id}>
-                    {option.label}
-                </label>
+                <div key={option.name} classvalue="form-check">
+                    <input
+                        classvalue="form-check-input"
+                        type="checkbox"
+                        id={option.name}
+                        value={option.label}
+                        checked={checkedItems.includes(option.label) || false}
+                        onChange={handleCheck}
+                    />
+                    <label classvalue="form-check-label" htmlFor={option.name}>
+                        {option.label}
+                    </label>
                 </div>
             ))}
         </div>

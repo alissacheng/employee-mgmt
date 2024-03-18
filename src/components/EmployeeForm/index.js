@@ -1,27 +1,32 @@
-import { useCallback, useState, useContext } from "react"
-import TextInput from "./TextInput"
-import SelectInput from "./SelectInput"
+import { useState, useContext } from "react"
+
 import UserContext from "../../lib/UserContext"
 import employeeFormInputData from "../../lib/employeeFormInputData"
+import TextInput from "./TextInput"
+import SelectInput from "./SelectInput"
 import validateForm from "./validateForm"
 
 const EmployeeForm = () => {
     const {allEmployees, setAllEmployees} = useContext(UserContext);
     const [formData, setFormData] = useState({})
     const [formErr, setFormErr] = useState({})
+    const [firstSubmit, setFirstSubmit] = useState(false)
 
     const handleChange = (e) => {
+        //Update formData object
         const newFormData = {
             ...formData,
             [e.target.name]: e.target.value
         }
         setFormData(newFormData);
-        validateForm(allEmployees, newFormData, setFormErr);
+        // Validate form if user has already clicked submit once
+        if(firstSubmit) validateForm(allEmployees, newFormData, setFormErr);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // document.getElementById("employee-form").classList.add("was-validated")
+        if(!firstSubmit) setFirstSubmit(true)
+
         if(validateForm(allEmployees, formData, setFormErr)){
             const lastEmployee = allEmployees[allEmployees.length - 1];
             const id = lastEmployee ? lastEmployee.id + 1 : 1;
@@ -29,6 +34,7 @@ const EmployeeForm = () => {
             setAllEmployees([...allEmployees, { ...formData, id }]);
             setFormData({});
             setFormErr({});
+            setFirstSubmit(false);
         }
     }
 
