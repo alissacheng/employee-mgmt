@@ -5,32 +5,38 @@ const OneEmployee = ({ employee, handleDelete, searchInput }) => {
     const afterBold = employee.name.slice(indexOfBoldPart + searchInput.length);
 
     return(
-        <tr>
-            <td className="col">
+        <tr className="fs-6">
+            <td className="col py-3 px-3 align-middle">
                 {beforeBold}
                 {searchInput && <strong>{boldPart}</strong>}
                 {afterBold}
             </td>
-            <td className="col">
+            <td className="col py-3 px-3 align-middle">
                 {employee.email}
             </td>
-            <td className="col">
+            <td className="col py-3 px-3 align-middle">
                 {employee.position}
             </td>
-            <td className="col">
+            <td className="col py-3 px-3 align-middle">
                 {employee.department}
             </td>
-            <td className="col">
+            <td className="col py-3 px-3 align-middle">
                 ${parseInt(employee.salary).toLocaleString()}
             </td>
-            <td className="col">
+            <td className="col py-3 px-3 align-middle">
                 {employee.start_date}
             </td>
-            <td className="col">
+            <td className="col py-3 px-3 align-middle">
                 <button
+                    className="rounded-circle border-0 delete-btn"
                     onClick={()=>{handleDelete(employee.id)}}
                 >
-                    Delete
+                    <img 
+                        src="/trash.svg" 
+                        alt="Trash can icon"
+                        className="py-2 px-1"
+                    />
+                    <span className="visually-hidden">Delete</span>
                 </button>
             </td>
         </tr>

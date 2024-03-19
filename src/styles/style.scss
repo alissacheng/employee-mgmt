@@ -1,0 +1,19 @@
+
+
+@import "../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../node_modules/bootstrap/scss/_variables.scss";
+
+$custom-theme-colors: (
+  "main": #fafafa,
+  "theme": #0a0a0b,
+  "light-theme": #777D8A,
+  "white": white
+);
+
+$theme-colors: map-merge($map1: $custom-theme-colors, $map2: $theme-colors);
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./sass/employee_table";
+@import "./sass/forms";
+@import "./sass/filter_search";
+@import "./sass/global";

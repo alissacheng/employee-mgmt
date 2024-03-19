@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/style.css'
 import EmployeeForm from './components/EmployeeForm';
 import EmployeeList from './components/EmployeeList';
 import NavigationBar from './components/NavigationBar';

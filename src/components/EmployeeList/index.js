@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import Papa from 'papaparse';
 import UserContext from "../../lib/UserContext";
 import SearchFilter from "../SearchFilter";
-import EmployeesTable from "./EmployeesTable";
+import EmployeeTable from "./EmployeeTable";
 
 const EmployeeList = () => {
     const {setAllEmployees, allEmployees} = useContext(UserContext);
@@ -55,11 +55,21 @@ const EmployeeList = () => {
 
     return(
         <div className="container">
+            <div className="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 className="fs-3">Employee List</h1>
+                    <p>View and manage employee data</p>
+                </div>
+                <div>
+                    <button className='btn btn-dark'>New Employee</button>
+                    <button className='btn btn-light'>Export</button>
+                </div>
+            </div>
             <SearchFilter 
                 updateSearch={(input)=>setSearchInput(input)}
                 updateEmployees={(list)=>setEmployees(sortByName(list))}
             />
-            <EmployeesTable
+            <EmployeeTable
                 searchInput={searchInput}
                 employees={employees}
                 handleDelete={handleDelete}

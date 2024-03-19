@@ -28,9 +28,9 @@ const SearchFilter = ({ updateSearch, updateEmployees }) => {
     }, [allEmployees, searchInput, checkedItems]);
 
     return(
-        <div className="row">
-            <Search handleChange={handleChange} />
+        <div className="d-flex">
             <Filter handleCheck={handleCheck} checkedItems={checkedItems} />
+            <Search handleChange={handleChange} />
         </div>
     )
 }

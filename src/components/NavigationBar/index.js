@@ -11,7 +11,7 @@ const NavigationBar = () => {
 
   return(
     <nav className="navbar navbar-expand-lg px-4">
-      <a className="navbar-brand" href="#">Employee Platform Manager</a>
+      {/* <a className="navbar-brand" href="#">Employee Platform Manager</a> */}
       <button 
         className="navbar-toggler" 
         type="button" 
@@ -27,7 +27,10 @@ const NavigationBar = () => {
       <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <button className='btn btn-link nav-link'>Add New Employee</button>
+            <a>Employees</a>
+          </li>
+          <li className="nav-item">
+            <a>Departments</a>
           </li>
         </ul>
       </div>

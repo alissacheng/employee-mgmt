@@ -1,14 +1,17 @@
 const Search = ({ handleChange }) => {
     return(
-        <div className="col">
-            <div className="input-group mb-3">
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder={"Search Name"}
-                    onChange={handleChange}
-                />
-            </div>
+        <div className="col mb-3 position-relative">
+            <img 
+                src="/search.svg"
+                className="search-icon position-absolute"
+                alt="Magnifying glass icon" 
+            />
+            <input
+                type="text"
+                className="form-control px-4"
+                placeholder={"Search employees"}
+                onChange={handleChange}
+            />
         </div>
     )
 }
