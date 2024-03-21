@@ -57,22 +57,7 @@ const EmployeeList = () => {
     }
 
     return(
-        <div className="container">
-            {/* <div className="d-flex justify-content-between align-items-center">
-                <div>
-                    <h1 className="fs-3 fw-bold">Employee List</h1>
-                    <p>View and manage employee data</p>
-                </div>
-                <div>
-                    <button 
-                        className='btn btn-dark mx-2' 
-                        onClick={()=>setNewEmployee(true)}
-                    >
-                        New Employee
-                    </button>
-                    <a className='btn btn-light border' onClick={handleDownload} id="export">Export</a>
-                </div>
-            </div> */}
+        <>
             <SearchFilter 
                 updateSearch={(input)=>setSearchInput(input)}
                 updateEmployees={(list)=>setEmployees(sortByName(list))}
@@ -87,7 +72,7 @@ const EmployeeList = () => {
                 cancel={()=>setDeleteEmployee(false)}
                 submitDelete={submitDelete}
             />
-        </div>
+        </>
     )
 };
 

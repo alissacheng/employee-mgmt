@@ -1,5 +1,4 @@
 const TextInput = ({name, label, type, handleChange, value, error}) => {
-    // console.log("render", name)
     return(
         <div className={`form-floating mb-3`}>
             <input

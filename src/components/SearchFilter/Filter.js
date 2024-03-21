@@ -20,7 +20,7 @@ const Filter = ({ handleCheck, checkedItems }) => {
     }, [open])
 
     return(
-        <div className="col filter mb-3" id="filter">
+        <div className="col filter mb-4" id="filter">
             <button 
                 className={`border-0 px-4 py-1 h-100 btn btn-light rounded w-100 ${open && "btn-dark"}`}
                 onClick={()=>setOpen(!open)}

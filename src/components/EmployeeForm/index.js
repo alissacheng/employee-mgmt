@@ -44,10 +44,10 @@ const EmployeeForm = () => {
             <div className="row justify-content-center">
                 <div className="col-md-6 my-4">
                     <button
-                        className="bg-white border-0 mb-2"
+                        className="bg-white border-0 mb-2 fs-5"
                         onClick={()=>setNewEmployee(false)}
                     >
-                        <img src="/left-arrow.svg" alt="Left arrow icon" />
+                        <img src="/left-arrow.svg" alt="Left arrow icon" className="me-2" />
                         Back to Employee List
                     </button>
                     <form 
@@ -59,9 +59,9 @@ const EmployeeForm = () => {
                             <img 
                                 src="people.svg" 
                                 alt="People icon" 
-                                className="mx-auto d-block people-icon my-3"
+                                className="mx-auto d-block people-icon mb-2"
                             />
-                            <h1 className="pb-4 text-center fs-3 fw-bold">New Employee</h1>
+                            <h1 className="pb-3 text-center fs-3 fw-bold">New Employee</h1>
                         </div>
                         {employeeFormInputData.map(input => (
                             input.type === "select" ?

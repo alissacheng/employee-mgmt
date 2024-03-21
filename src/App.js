@@ -21,13 +21,9 @@ function App() {
         }}
       >
         <div className='container'>
-          {newEmployee ?
-            <EmployeeForm />
-            :
-            <>
-              <NavigationBar />
-              <EmployeeList />
-            </>}
+            {newEmployee && <EmployeeForm />}
+            <NavigationBar />
+            <EmployeeList />
         </div>
       </UserContext.Provider>
     </div>

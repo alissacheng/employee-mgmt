@@ -22,18 +22,17 @@ const NavigationBar = () => {
     const csv = arrayToCSV(allEmployees);
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
-    const a = document.getElementById("export")
+    const a = document.getElementById("export");
     a.href = url;
     a.download =  'employees.csv';
-    a.click();
     URL.revokeObjectURL(url);
   };
 
   return(
-    <nav className="navbar navbar-expand-lg px-4">
+    <nav className="navbar navbar-expand-lg my-3">
       <div>
-        <h1 className="fs-3 fw-bold">Employee List</h1>
-        <p>View and manage employee data</p>
+        <h1 className="fs-3 fw-bold m-0">Employee List</h1>
+        <p className='m-0'>View and manage employee data</p>
       </div>
       <button 
         className="navbar-toggler" 

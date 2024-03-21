@@ -1,6 +1,6 @@
 const Search = ({ handleChange }) => {
     return(
-        <div className="col mb-3 position-relative ps-3">
+        <div className="col mb-4 position-relative ps-4">
             <img 
                 src="/search.svg"
                 className="search-icon position-absolute"

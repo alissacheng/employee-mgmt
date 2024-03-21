@@ -1,4 +1,4 @@
-import { useState, useContext, useCallback } from "react"
+import { useState, useContext, useCallback, useEffect } from "react"
 import Search from "./Search"
 import UserContext from "../../lib/UserContext";
 import Filter from "./Filter";
@@ -13,21 +13,19 @@ const SearchFilter = ({ updateSearch, updateEmployees }) => {
         const { value: department, checked: isChecked } = e.target;
         const newCheckedItems = isChecked ? [...checkedItems, department] : checkedItems.filter(item => item !== department);
         setCheckedItems(newCheckedItems);
-        updateEmployees(filteredEmployees(searchInput, checkedItems, allEmployees));
     }
 
     const handleChange = (e) => {
         const search = (e.target.value).toLowerCase().trim()
         setSearchInput(search);
         updateSearch(search);
-        updateEmployees(filteredEmployees(searchInput, checkedItems, allEmployees));
     }
 
-    // useEffect(() => {
-    //     if (allEmployees.length) {
-    //         updateEmployees(filteredEmployees(searchInput, checkedItems, allEmployees));
-    //     }
-    // }, [allEmployees, searchInput, checkedItems]);
+    useEffect(() => {
+        if (allEmployees.length) {
+            updateEmployees(filteredEmployees(searchInput, checkedItems, allEmployees));
+        }
+    }, [allEmployees, searchInput, checkedItems]);
 
     return(
         <div className="d-flex position-relative">
