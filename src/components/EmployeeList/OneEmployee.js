@@ -29,7 +29,10 @@ const OneEmployee = ({ employee, handleDelete, searchInput }) => {
             <td className="col py-3 px-3 align-middle">
                 <button
                     className="rounded-circle border-0 delete-btn"
-                    onClick={()=>{handleDelete(employee.id)}}
+                    type="button"
+                    onClick={()=>{handleDelete(employee.id, employee.name)}}
+                    data-bs-toggle="modal" 
+                    data-bs-target="#deleteModal"
                 >
                     <img 
                         src="/trash.svg" 

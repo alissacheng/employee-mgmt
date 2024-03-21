@@ -1,23 +1,21 @@
 const Pagination = ({ updatePage, page, totalPages }) => {
     return(
-        <div className="d-flex my-4">
-        {totalPages && <p className="fw-bold mb-0">{page} of {totalPages}</p>}
-        {page > 1 && (
+        <div className="d-flex my-4 justify-content-center">
             <button 
                 onClick={()=>{updatePage(-1)}}
-                className="bg-white border-1 rounded-2 ms-2"
+                className={`bg-white border-1 rounded-2 me-2 ${page < 2 && 'invisible'} p-0`}
             >
-                {"<"}
+                <img src="/left-chevron.svg" alt="Left chevron icon" />
+                <span className="visually-hidden">Previous page</span>
             </button>
-        )}
-        {page <  totalPages && (
+        {totalPages && <p className="fw-bold mb-0">page {page} of {totalPages}</p>}
             <button 
                 onClick={()=>{updatePage(1)}}
-                className="bg-white border-1 rounded-2 ms-2"
+                className={`bg-white border-1 rounded-2 ms-2 p-0 ${page >= totalPages && 'invisible'}`}
             >
-                {">"}
+                <img src="/right-chevron.svg" alt="Left chevron icon" />
+                <span className="visually-hidden">Next page</span>
             </button>
-        )}
         </div>
     )
 };

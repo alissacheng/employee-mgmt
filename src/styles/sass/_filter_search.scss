@@ -1,13 +1,52 @@
 .filter {
   max-width: 150px;
   min-width: 150px;
+
+  input {
+    opacity: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    padding: 0;
+  }
+
+  label:hover,
+  input:focus + label,
+  input:active + label,
+  input:hover + label {
+    background-color: $gray-200;
+  }
+
+  img {
+    width: 20px;
+    height: auto;
+  }
+
+  img.active {
+    filter: invert(1);
+  }
+
+  .popup {
+    width: 180px;
+    top: 45px;
+    left: -5px;
+
+     p,
+     label {
+      font-size: 14px;
+     }
+
+     p {
+      border-bottom: 1px solid $gray-200;
+     }
+  }
 }
 
 .search-icon {
   top: 10px;
-  left: 5px;
+  left: 30px;
   z-index: 20;
-  height: 17px;
+  height: 22px;
   width: auto;
   opacity: 0.5;
 }

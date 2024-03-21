@@ -7,7 +7,7 @@ import SelectInput from "./SelectInput"
 import validateForm from "./validateForm"
 
 const EmployeeForm = () => {
-    const {allEmployees, setAllEmployees} = useContext(UserContext);
+    const {allEmployees, setAllEmployees, setNewEmployee} = useContext(UserContext);
     const [formData, setFormData] = useState({})
     const [formErr, setFormErr] = useState({})
     const [firstSubmit, setFirstSubmit] = useState(false)
@@ -35,14 +35,34 @@ const EmployeeForm = () => {
             setFormData({});
             setFormErr({});
             setFirstSubmit(false);
+            setNewEmployee(false);
         }
     }
 
     return(
         <div className="container">
-            <div className="row">
-                <div className="col-md-6">
-                    <form noValidate={true} id="employee-form">
+            <div className="row justify-content-center">
+                <div className="col-md-6 my-4">
+                    <button
+                        className="bg-white border-0 mb-2"
+                        onClick={()=>setNewEmployee(false)}
+                    >
+                        <img src="/left-arrow.svg" alt="Left arrow icon" />
+                        Back to Employee List
+                    </button>
+                    <form 
+                        noValidate={true} 
+                        id="employee-form" 
+                        className="border shadow-sm p-4 rounded-2"
+                    >
+                        <div>
+                            <img 
+                                src="people.svg" 
+                                alt="People icon" 
+                                className="mx-auto d-block people-icon my-3"
+                            />
+                            <h1 className="pb-4 text-center fs-3 fw-bold">New Employee</h1>
+                        </div>
                         {employeeFormInputData.map(input => (
                             input.type === "select" ?
                                 <SelectInput
@@ -68,11 +88,17 @@ const EmployeeForm = () => {
                         ))}
                         <div>
                             <button
-                                className="btn btn-primary"
+                                className="btn btn-dark"
                                 type="submit"
                                 onClick={handleSubmit}
                             >
-                                Submit
+                                Add Employee
+                            </button>
+                            <button
+                                className="btn btn-light border mx-2"
+                                onClick={()=>setNewEmployee(false)}
+                            >
+                                Cancel
                             </button>
                         </div>
                     </form>

@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 
 function App() {
   const [allEmployees, setAllEmployees] = useState([])
+  const [newEmployee, setNewEmployee] = useState(false)
 
   return (
     <div>
@@ -15,12 +16,18 @@ function App() {
         value={{
           allEmployees,
           setAllEmployees,
+          newEmployee,
+          setNewEmployee
         }}
       >
         <div className='container'>
-          <NavigationBar />
-          <EmployeeForm />
-          <EmployeeList />
+          {newEmployee ?
+            <EmployeeForm />
+            :
+            <>
+              <NavigationBar />
+              <EmployeeList />
+            </>}
         </div>
       </UserContext.Provider>
     </div>

@@ -1,4 +1,51 @@
-input.form-control:focus {
+input.form-control:focus,
+select.form-select:focus {
   border-color: $gray-600;
-  box-shadow: 0 0 0 0.1rem #555a5e72;
+  // box-shadow: 0 0 0 0.1rem #555a5e72;
+  box-shadow: none;
+}
+
+.form-floating input:active + label,
+.form-floating input:focus + label ,
+.form-floating input.active + label,
+.form-floating .form-select + label,
+.form-floating input[type="date"] + label{
+  top: -18px;
+  padding-left: 12px;
+  left: 8px;
+}
+
+input,
+.form-floating>input.form-control,
+.form-floating>select.form-control{
+  border-radius: 5px;
+  padding: 20px;
+}
+
+label,
+div.form-floating>label,
+.form-floating>select.form-select {
+  padding-left: 20px;
+}
+
+.form-floating>select.form-select {
+  padding-top: 10px;
+}
+
+.form-floating>input.form-control:not(:placeholder-shown),
+.form-floating>input.form-control:active,
+.form-floating>input.form-control:focus {
+  padding-bottom: 1.625rem;
+}
+
+input.error,
+p.error,
+select.error {
+  color: $red-500;
+  border-color: $red-500;
+}
+
+form .people-icon {
+  width: 30px;
+  height: auto;
 }

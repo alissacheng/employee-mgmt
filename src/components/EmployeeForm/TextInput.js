@@ -1,9 +1,9 @@
 const TextInput = ({name, label, type, handleChange, value, error}) => {
     // console.log("render", name)
     return(
-        <div className="form-floating mb-3">
+        <div className={`form-floating mb-3`}>
             <input
-                className="form-control" 
+                className={`form-control ${value.length && 'active'} ${error && 'error'}`}
                 id={name + "-input"}
                 name={name}
                 type={type}
@@ -14,7 +14,7 @@ const TextInput = ({name, label, type, handleChange, value, error}) => {
                 min={0}
             />
             <label htmlFor={name + "-input"}>{label}</label>
-            {error && <p>{error}</p>}
+            {error && <p className="error mt-1">{error}</p>}
         </div>
     )
 }
