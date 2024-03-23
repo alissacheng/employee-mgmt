@@ -8,7 +8,7 @@ const DeleteModal = ({ name, cancel, submitDelete }) => {
             <button 
               type="button" 
               className="btn-close" 
-              data-bs-dismiss="modal" 
+              data-bs-dismiss="deleteModal" 
               aria-label="Close"
               onClick={cancel}
             >
@@ -21,7 +21,7 @@ const DeleteModal = ({ name, cancel, submitDelete }) => {
             <button 
               type="button" 
               className="btn btn-secondary" 
-              data-bs-dismiss="modal"
+              data-bs-dismiss="deleteModal"
               onClick={cancel}
             >
               Cancel

@@ -11,7 +11,7 @@ function App() {
   const [newEmployee, setNewEmployee] = useState(false)
 
   return (
-    <div>
+    <div className='overflow-hidden'>
       <UserContext.Provider
         value={{
           allEmployees,
@@ -20,8 +20,8 @@ function App() {
           setNewEmployee
         }}
       >
-        <div className='container'>
-            {newEmployee && <EmployeeForm />}
+        {newEmployee && <EmployeeForm />}
+        <div className={`container-lg px-3 px-md-5 px-lg-0 ${newEmployee && 'd-none'}`}>
             <NavigationBar />
             <EmployeeList />
         </div>

@@ -3,7 +3,7 @@ import Papa from 'papaparse';
 import UserContext from "../../lib/UserContext";
 import SearchFilter from "../SearchFilter";
 import EmployeeTable from "./EmployeeTable";
-import DeleteModal from "./DeleteModal";
+import DeleteModal from "../DeleteModal";
 
 const EmployeeList = () => {
     const {setAllEmployees, allEmployees} = useContext(UserContext);

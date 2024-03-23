@@ -8,8 +8,12 @@ table tbody tr:last-of-type td {
 
 th,
 td {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
+
+  @media(min-width: 576px){
+    font-size: 15px;
+  }
 }
 
 td strong {
@@ -37,4 +41,12 @@ td strong {
 
 .modal {
   background-color: rgba(64, 64, 64, 0.8);
+}
+
+.pagination p {
+  font-size: 15px;
+
+  @media (min-width: 576px){
+    font-size: 14px;
+  }
 }

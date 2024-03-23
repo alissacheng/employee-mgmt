@@ -40,26 +40,26 @@ const EmployeeForm = () => {
     }
 
     return(
-        <div className="container">
+        <div className="container bg-white">
             <div className="row justify-content-center">
-                <div className="col-md-6 my-4">
+                <div className="col-xl-6 col-lg-8 col-12 my-sm-4 my-2">
                     <button
-                        className="bg-white border-0 mb-2 fs-5"
+                        className="bg-white border-0 mb-2"
                         onClick={()=>setNewEmployee(false)}
                     >
-                        <img src="/left-arrow.svg" alt="Left arrow icon" className="me-2" />
+                        <img src="/images/left-arrow.svg" alt="Left arrow icon" className="me-2" />
                         Back to Employee List
                     </button>
                     <form 
                         noValidate={true} 
                         id="employee-form" 
-                        className="border shadow-sm p-4 rounded-2"
+                        className="border shadow-sm p-sm-4 p-2 rounded-2 bg-white"
                     >
                         <div>
                             <img 
-                                src="people.svg" 
+                                src="/images/people.svg" 
                                 alt="People icon" 
-                                className="mx-auto d-block people-icon mb-2"
+                                className="mx-auto d-block people-icon my-2"
                             />
                             <h1 className="pb-3 text-center fs-3 fw-bold">New Employee</h1>
                         </div>
@@ -86,7 +86,7 @@ const EmployeeForm = () => {
                                     error={formErr[input.name] ?? ""}
                                 />
                         ))}
-                        <div>
+                        <div className="mb-4">
                             <button
                                 className="btn btn-dark"
                                 type="submit"

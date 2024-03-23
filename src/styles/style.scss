@@ -16,4 +16,5 @@ $theme-colors: map-merge($map1: $custom-theme-colors, $map2: $theme-colors);
 @import "./sass/employee_table";
 @import "./sass/forms";
 @import "./sass/filter_search";
+@import "./sass/navbar";
 @import "./sass/global";

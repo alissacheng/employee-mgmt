@@ -1,7 +1,6 @@
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import UserContext from '../../lib/UserContext';
 
-import { useState } from 'react';
 const NavigationBar = () => {
   const {setNewEmployee, allEmployees} = useContext(UserContext);
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -9,7 +8,6 @@ const NavigationBar = () => {
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
-  console.log("list")
 
   const arrayToCSV = (arr) => {
     const csv = arr.map(row => {
@@ -46,14 +44,8 @@ const NavigationBar = () => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className={`collapse navbar-collapse ${isNavOpen && 'show'} d-flex justify-content-end`} id="navbarNav">
+      <div className={`collapse navbar-collapse ${isNavOpen && 'd-flex'} justify-content-end`} id="navbarNav">
         <ul className="navbar-nav">
-          {/* <li>
-            <img src="/people.svg" alt='People icon' />
-          </li>
-          <li className="nav-item">
-            <a className='fw-bold' href='/'>Employees</a>
-          </li> */}
           <li className="nav-item">
             <button 
               className='btn btn-dark mx-2' 

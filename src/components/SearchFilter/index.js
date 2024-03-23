@@ -3,6 +3,7 @@ import Search from "./Search"
 import UserContext from "../../lib/UserContext";
 import Filter from "./Filter";
 import filteredEmployees from "./filteredEmployees";
+import CancelFilters from "./CancelFilters";
 
 const SearchFilter = ({ updateSearch, updateEmployees }) => {
     const {allEmployees} = useContext(UserContext);
@@ -21,6 +22,10 @@ const SearchFilter = ({ updateSearch, updateEmployees }) => {
         updateSearch(search);
     }
 
+    const removeFilter = (department) => {
+        setCheckedItems(checkedItems.filter(item => item !== department))
+    }
+
     useEffect(() => {
         if (allEmployees.length) {
             updateEmployees(filteredEmployees(searchInput, checkedItems, allEmployees));
@@ -28,10 +33,13 @@ const SearchFilter = ({ updateSearch, updateEmployees }) => {
     }, [allEmployees, searchInput, checkedItems]);
 
     return(
-        <div className="d-flex position-relative">
-            <Filter handleCheck={handleCheck} checkedItems={checkedItems} />
-            <Search handleChange={handleChange} />
-        </div>
+        <>
+            <div className={`d-flex position-relative mb-3 ${checkedItems.length == 0 && "mb-sm-4"}`}>
+                <Filter handleCheck={handleCheck} checkedItems={checkedItems} />
+                <Search handleChange={handleChange} />
+            </div>
+            {checkedItems.length > 0 && <CancelFilters checkedItems={checkedItems} removeFilter={removeFilter} />}
+        </>
     )
 }
 

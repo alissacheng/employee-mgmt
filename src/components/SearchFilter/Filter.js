@@ -20,20 +20,20 @@ const Filter = ({ handleCheck, checkedItems }) => {
     }, [open])
 
     return(
-        <div className="col filter mb-4" id="filter">
+        <div className="col filter" id="filter">
             <button 
-                className={`border-0 px-4 py-1 h-100 btn btn-light rounded w-100 ${open && "btn-dark"}`}
+                className={`border-0 px-sm-4 px-2 py-1 h-100 btn btn-light rounded w-100 ${open && "btn-dark"}`}
                 onClick={()=>setOpen(!open)}
             >
                 <img 
-                    src="/filter.svg" 
+                    src="/images/filter.svg" 
                     alt="Filter icon"
                     className={`mx-1 ${open && "active"}`}
                 />
                 <span className="mx-1">Filter</span>
             </button>
             <div 
-                className={`position-absolute border bg-white shadow-sm rounded popup ${!open && 'invisible'}`}
+                className={`position-absolute border bg-white shadow-sm pb-1 rounded popup ${!open && 'invisible'}`}
             >
             <p className="fw-bold text-center py-2 border-bottom-1 my-1">Filter by Department</p>
             {departmentList.map((option) => (
@@ -49,7 +49,7 @@ const Filter = ({ handleCheck, checkedItems }) => {
                     <label className="form-check-label w-100 d-block py-1 px-1 rounded-1" htmlFor={option.name}>
                         {checkedItems.includes(option.label) && (
                         <span>                    
-                            <img src="/checkmark.svg" alt="Checkmark icon" className="me-1" />
+                            <img src="/images/checkmark.svg" alt="Checkmark icon" className="me-1" />
                         </span>)}
                         <span className={!checkedItems.includes(option.label) && 'ps-4'}>{option.label}</span>
                     </label>
