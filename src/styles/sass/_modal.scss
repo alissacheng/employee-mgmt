@@ -1,0 +1,12 @@
+.modal {
+  opacity: 0;
+  z-index: -1 !important;
+  max-height: 100vh;
+  transition: opacity 0.5s ease-in-out, z-index 2s ease-out;
+  background-color: rgba(64, 64, 64, 0.8);
+}
+
+.modal.show{
+  opacity: 1;
+  z-index: 10 !important;
+}

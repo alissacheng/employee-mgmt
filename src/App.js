@@ -21,7 +21,7 @@ function App() {
         }}
       >
         {newEmployee && <EmployeeForm />}
-        <div className={`container-lg px-3 px-md-5 px-lg-0 ${newEmployee && 'd-none'}`}>
+        <div className={`${newEmployee && 'd-none'}`}>
             <NavigationBar />
             <EmployeeList />
         </div>

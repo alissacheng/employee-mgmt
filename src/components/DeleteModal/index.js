@@ -1,7 +1,7 @@
 const DeleteModal = ({ name, cancel, submitDelete }) => {
   return(
     <div className={`modal modal-fade d-block ${name && 'show'}`} tabIndex="-1" id="deleteModal">
-      <div className="modal-dialog mt-5">
+      <div className="modal-dialog mt-5 mx-3">
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Are you sure you want to delete?</h5>

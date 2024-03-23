@@ -39,14 +39,18 @@ td strong {
   }
 }
 
-.modal {
-  background-color: rgba(64, 64, 64, 0.8);
-}
-
 .pagination p {
-  font-size: 15px;
+  font-size: 14px;
 
   @media (min-width: 576px){
-    font-size: 14px;
+    font-size: 15px;
+  }
+}
+
+.employee-list {
+  padding-top: 92.5px;
+
+  @media(min-width: 992px){
+    padding-top: 0;
   }
 }

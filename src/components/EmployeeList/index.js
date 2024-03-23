@@ -57,7 +57,7 @@ const EmployeeList = () => {
     }
 
     return(
-        <>
+        <div className="container-lg px-3 px-md-5 px-lg-0 employee-list">
             <SearchFilter 
                 updateSearch={(input)=>setSearchInput(input)}
                 updateEmployees={(list)=>setEmployees(sortByName(list))}
@@ -72,7 +72,7 @@ const EmployeeList = () => {
                 cancel={()=>setDeleteEmployee(false)}
                 submitDelete={submitDelete}
             />
-        </>
+        </div>
     )
 };
 

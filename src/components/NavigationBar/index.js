@@ -27,13 +27,13 @@ const NavigationBar = () => {
   };
 
   return(
-    <nav className="navbar navbar-expand-lg my-3">
-      <div>
+    <nav className="navbar navbar-expand-lg py-3 container-lg px-3 px-md-5 px-lg-0 bg-white">
+      <div className='w-75'>
         <h1 className="fs-3 fw-bold m-0">Employee List</h1>
         <p className='m-0'>View and manage employee data</p>
       </div>
       <button 
-        className="navbar-toggler" 
+        className={`navbar-toggler ${isNavOpen ? 'active' : ''}`}
         type="button" 
         data-toggle="collapse" 
         data-target="#navbarNav" 
@@ -42,13 +42,15 @@ const NavigationBar = () => {
         aria-label="Toggle navigation"
         onClick={toggleNav}
       >
-        <span className="navbar-toggler-icon"></span>
+        <span className="border-bottom-1 d-block"></span>
+        <span className="border-bottom-1"></span>
+        <span className="border-bottom-1 d-block"></span>
       </button>
-      <div className={`collapse navbar-collapse ${isNavOpen && 'd-flex'} justify-content-end`} id="navbarNav">
+      <div className={`navbar-collapse ${isNavOpen ? 'active' : ''} bg-white w-100 d-lg-flex justify-content-end py-lg-0 py-4 px-lg-0 px-3 px-md-5`} id="navbarNav">
         <ul className="navbar-nav">
-          <li className="nav-item">
+          <li className="nav-item mb-2 mb-lg-0">
             <button 
-              className='btn btn-dark mx-2' 
+              className='btn btn-dark mx-lg-2' 
               onClick={()=>setNewEmployee(true)}
             >
               New Employee

@@ -17,4 +17,5 @@ $theme-colors: map-merge($map1: $custom-theme-colors, $map2: $theme-colors);
 @import "./sass/forms";
 @import "./sass/filter_search";
 @import "./sass/navbar";
+@import "./sass/modal";
 @import "./sass/global";

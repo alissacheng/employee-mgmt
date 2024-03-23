@@ -8,18 +8,6 @@ button.btn {
   font-weight: 500;
 }
 
-.modal {
-  opacity: 0;
-  z-index: -1 !important;
-  max-height: 100vh;
-  transition: opacity 0.5s ease-in-out, z-index 2s ease-out;
-}
-
-.modal.show{
-  opacity: 1;
-  z-index: 10 !important;
-}
-
 .no-wrap {
   white-space: nowrap;
 }
