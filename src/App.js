@@ -2,7 +2,6 @@ import './styles/style.css'
 import EmployeeForm from './components/EmployeeForm';
 import EmployeeList from './components/EmployeeList';
 import NavigationBar from './components/NavigationBar';
-import SearchFilter from './components/SearchFilter';
 import UserContext from './lib/UserContext';
 import React, { useState } from 'react';
 

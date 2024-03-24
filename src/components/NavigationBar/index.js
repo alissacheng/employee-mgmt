@@ -48,16 +48,22 @@ const NavigationBar = () => {
       </button>
       <div className={`navbar-collapse ${isNavOpen ? 'active' : ''} bg-white w-100 d-lg-flex justify-content-end py-lg-0 py-4 px-lg-0 px-3 px-md-5`} id="navbarNav">
         <ul className="navbar-nav">
-          <li className="nav-item mb-2 mb-lg-0">
+          <li className="nav-item">
             <button 
-              className='btn btn-dark mx-lg-2' 
+              className='btn btn-dark me-2' 
               onClick={()=>setNewEmployee(true)}
             >
               New Employee
             </button>
           </li>
           <li className='nav-item'>
-            <a className='btn btn-light border' onClick={handleDownload} id="export">Export</a>
+            <a 
+              className='btn btn-light border mt-2 mt-lg-0' 
+              onClick={handleDownload} 
+              id="export"
+            >
+              Export List
+            </a>
           </li>
         </ul>
       </div>

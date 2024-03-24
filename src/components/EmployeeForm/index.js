@@ -4,7 +4,7 @@ import UserContext from "../../lib/UserContext"
 import employeeFormInputData from "../../lib/employeeFormInputData"
 import TextInput from "./TextInput"
 import SelectInput from "./SelectInput"
-import validateForm from "./validateForm"
+import validateForm from "../../utils/validateForm"
 
 const EmployeeForm = () => {
     const {allEmployees, setAllEmployees, setNewEmployee} = useContext(UserContext);

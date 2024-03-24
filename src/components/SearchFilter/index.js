@@ -2,7 +2,7 @@ import { useState, useContext, useCallback, useEffect } from "react"
 import Search from "./Search"
 import UserContext from "../../lib/UserContext";
 import Filter from "./Filter";
-import filteredEmployees from "./filteredEmployees";
+import filteredEmployees from "../../utils/filteredEmployees";
 import CancelFilters from "./CancelFilters";
 
 const SearchFilter = ({ updateSearch, updateEmployees }) => {

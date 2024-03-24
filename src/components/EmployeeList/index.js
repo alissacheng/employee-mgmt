@@ -4,27 +4,14 @@ import UserContext from "../../lib/UserContext";
 import SearchFilter from "../SearchFilter";
 import EmployeeTable from "./EmployeeTable";
 import DeleteModal from "../DeleteModal";
+import sortByName from "../../utils/sortByName";
 
 const EmployeeList = () => {
     const {setAllEmployees, allEmployees} = useContext(UserContext);
     const [searchInput, setSearchInput] = useState("")
     const [employees, setEmployees] = useState([])
     const [deleteEmployee, setDeleteEmployee] = useState(false)
-
-    const sortByName =  (array) => {
-        return array.sort((a, b) => {
-            const nameA = a.name.toUpperCase();
-            const nameB = b.name.toUpperCase();
-        
-            if (nameA < nameB) {
-                return -1;
-            }
-            if (nameA > nameB) {
-                return 1;
-            }
-            return 0;
-        });
-    }
+    const [isLoading, setIsLoading] = useState(true)
 
     const fetchEmployees = async () => {
         try {
@@ -37,6 +24,7 @@ const EmployeeList = () => {
                     const sortedEmployees = sortByName(result.data)
                     setEmployees(sortedEmployees)
                     setAllEmployees(sortedEmployees)
+                    setIsLoading(false)
                 }
             });
         } catch (error) {
@@ -62,11 +50,19 @@ const EmployeeList = () => {
                 updateSearch={(input)=>setSearchInput(input)}
                 updateEmployees={(list)=>setEmployees(sortByName(list))}
             />
-            <EmployeeTable
-                searchInput={searchInput}
-                employees={employees}
-                handleDelete={(id, name)=>setDeleteEmployee({id, name})}
-            />
+            {isLoading ?
+                <div className="d-flex justify-content-center my-5">
+                    <div class="spinner-border custom-spinner" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                  :
+                <EmployeeTable
+                    searchInput={searchInput}
+                    employees={employees}
+                    handleDelete={(id, name)=>setDeleteEmployee({id, name})}
+                />
+            }
             <DeleteModal 
                 name={deleteEmployee.name ?? ''}
                 cancel={()=>setDeleteEmployee(false)}
