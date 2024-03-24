@@ -8,6 +8,7 @@ const CancelFilters = ({ checkedItems, removeFilter }) => {
             className="rounded-5 btn-dark btn px-1 py-0 me-2 mb-1 mb-sm-0"
           >
             <span className="mx-1">{department}</span>
+            <span className="visually-hidden">Cancel {department} filter</span>
             <span className="rounded-circle bg-white">
               <img src="/images/cancel.svg" alt="Cancel icon" />
             </span>

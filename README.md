@@ -1,6 +1,33 @@
-# Getting Started with Create React App
+# Getting Started with Employee List
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This Employee List is a web application built using React and Bootstrap. It provides a user-friendly interface to manage employee data, including viewing, adding, and deleting employees. Users can filter employees by department or search for employees by name.
+
+## Setup Instructions
+
+To set up and run the application locally, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/alissacheng/employee-mgmt.git`
+2. Navigate to project directory: `cd employee-mgmt`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
+5. Open application: Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## Usage
+
+- Upon opening the application, you will be presented with the dashboard displaying a list of employees.
+- To add a new employee, click on the "Add Employee" button in the navigation bar and fill in the required details in the form.
+- To delete an existing employee, click on the delete icon next to the employee's information under "Actions". A popup will appear asking you to verifiy that you want to delete the employee you have selected.
+- You can filter employees by department using the dropdown menu provided in the top left corner. Remove the filters by toggling the checkmarks in the dropdown menu or by clicking the cancel filter button below the search bar.
+- To search for a specific employee by name, use the search bar located at the top of the dashboard. Your search results will populate immediately while you are typing.
+
+## Technologies Used
+
+- React: JavaScript library for building user interfaces.
+- Bootstrap: Front-end framework for designing responsive and mobile-first websites.
+- JavaScript: Programming language used for the application logic.
+- HTML/CSS: Markup and styling languages for structuring and styling the application interface.
 
 ## Available Scripts
 
