@@ -2,7 +2,7 @@ const SelectInput = ({options, name, label, handleChange, value, error}) => {
     return(
         <div className="form-floating mb-3">
             <select
-                className={`form-select ${error && 'error'}`}
+                className={`form-select ${error ? 'error' : ''}`}
                 id={name + "-input"}
                 name={name}
                 value={value}

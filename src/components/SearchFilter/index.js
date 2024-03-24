@@ -1,4 +1,4 @@
-import { useState, useContext, useCallback, useEffect } from "react"
+import { useState, useContext, useEffect } from "react"
 import Search from "./Search"
 import UserContext from "../../utils/UserContext";
 import Filter from "./Filter";
@@ -28,13 +28,14 @@ const SearchFilter = ({ updateSearch, updateEmployees }) => {
 
     useEffect(() => {
         if (allEmployees.length) {
+            // Update search results everytime search value, filters or all employees updates
             updateEmployees(filteredEmployees(searchInput, checkedItems, allEmployees));
         }
     }, [allEmployees, searchInput, checkedItems]);
 
     return(
         <>
-            <div className={`d-flex position-relative mb-3 ${checkedItems.length == 0 && "mb-sm-4"}`}>
+            <div className={`d-flex position-relative mb-3 ${checkedItems.length === 0 ? "mb-sm-4" : ""}`}>
                 <Filter handleCheck={handleCheck} checkedItems={checkedItems} />
                 <Search handleChange={handleChange} />
             </div>

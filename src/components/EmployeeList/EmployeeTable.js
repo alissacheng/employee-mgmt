@@ -11,6 +11,7 @@ const EmployeeTable = ({ employees, handleDelete, searchInput }) => {
   const totalPages = Math.ceil(employees.length/pageSize)
 
   useEffect(()=> {
+    // Reset page to 1 every time employee search results updates
     if(employees.length && page !== 1){
       setPage(1)
     }

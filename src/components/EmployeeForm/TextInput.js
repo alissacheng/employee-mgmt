@@ -2,7 +2,7 @@ const TextInput = ({name, label, type, handleChange, value, error}) => {
     return(
         <div className={`form-floating mb-3`}>
             <input
-                className={`form-control ${value.length && 'active'} ${error && 'error'}`}
+                className={`form-control ${value.length ? 'active' : ''} ${error ? 'error' : ''}`}
                 id={name + "-input"}
                 name={name}
                 type={type}

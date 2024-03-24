@@ -20,7 +20,7 @@ function App() {
         }}
       >
         {newEmployee && <EmployeeForm />}
-        <div className={`${newEmployee && 'd-none'}`}>
+        <div className={`${newEmployee ? 'd-none' : ''}`}>
             <NavigationBar />
             <EmployeeList />
         </div>

@@ -13943,7 +13943,6 @@ nav.navbar .navbar-collapse {
 nav.navbar .navbar-collapse.active {
   top: 100%;
   left: 0;
-  z-index: 10;
   -webkit-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.25);
           box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.25);
 }
@@ -14010,9 +14009,15 @@ nav.navbar .navbar-toggler:hover span, nav.navbar .navbar-toggler:focus span, na
   opacity: 0;
   z-index: -1 !important;
   max-height: 100vh;
-  -webkit-transition: opacity 0.5s ease-in-out, z-index 2s ease-out;
-  transition: opacity 0.5s ease-in-out, z-index 2s ease-out;
+  -webkit-transition: opacity 0s ease-in-out, z-index 0s ease-out;
+  transition: opacity 0s ease-in-out, z-index 0s ease-out;
   background-color: rgba(64, 64, 64, 0.8);
+}
+@media (min-width: 992px) {
+  .modal {
+    -webkit-transition: opacity 0.5s ease-in-out, z-index 2s ease-out;
+    transition: opacity 0.5s ease-in-out, z-index 2s ease-out;
+  }
 }
 
 .modal.show {
