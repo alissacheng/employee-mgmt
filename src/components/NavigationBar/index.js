@@ -7,19 +7,23 @@ const NavigationBar = () => {
 
   const arrayToCSV = (arr) => {
     const csv = arr.map(row => {
-      return Object.values(row).join(',')
+      return `${row.id},"${row.name}",${row.email},${row.department},"${row.position}",${row.start_date},${row.salary}`
     }).join('\n');
     return csv;
   }
 
   const handleDownload = () => {
+    // Convert data to csv
     const csv = arrayToCSV(allEmployees);
+    // Create Blob
     const blob = new Blob([csv], { type: 'text/csv' });
+    // Create temporary URL
     const url = URL.createObjectURL(blob);
+    // Add url to element
     const a = document.getElementById("export");
     a.href = url;
+    // Name csv file to be downloaded
     a.download =  'employees.csv';
-    URL.revokeObjectURL(url);
   };
 
   return(

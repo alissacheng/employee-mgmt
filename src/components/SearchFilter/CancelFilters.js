@@ -3,7 +3,8 @@ const CancelFilters = ({ checkedItems, removeFilter }) => {
     <div className="mb-3 d-flex filter-cancel flex-wrap">
       {checkedItems.map((department)=>{
         return (
-          <button 
+          <button
+            key={department}
             onClick={()=>removeFilter(department)}
             className="rounded-5 btn-dark btn px-1 py-0 me-2 mb-1 mb-sm-0"
           >

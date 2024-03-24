@@ -53,8 +53,8 @@ const EmployeeList = () => {
             />
             {isLoading &&
                 <div className="d-flex justify-content-center my-5">
-                    <div class="spinner-border custom-spinner" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                    <div className="spinner-border custom-spinner" role="status">
+                        <span className="visually-hidden">Loading...</span>
                     </div>
                 </div>
             }

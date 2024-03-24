@@ -28,9 +28,9 @@ const EmployeeForm = () => {
         if(!firstSubmit) setFirstSubmit(true)
 
         if(validateForm(allEmployees, formData, setFormErr)){
-            // Get the last employee id and add one for new employee id
-            const lastEmployee = allEmployees[allEmployees.length - 1];
-            const id = lastEmployee ? lastEmployee.id + 1 : 1;
+            // Get the latest id and add one for new employee id
+            const maxId = allEmployees.reduce((max, obj) => Math.max(max, parseInt(obj.id)), -Infinity);
+            const id = maxId ? parseInt(maxId) + 1 : 1;
             // Add new employee to state and clear all data from component before exiting
             setAllEmployees([...allEmployees, { ...formData, id }]);
             setFormData({});
