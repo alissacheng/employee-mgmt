@@ -8,7 +8,7 @@ const Pagination = ({ updatePage, page, totalPages }) => {
             <img src="/images/left-chevron.svg" alt="Left chevron icon" />
             <span className="visually-hidden">Previous page</span>
         </button>
-    {totalPages && <p className="fw-bold mb-0">page {page} of {totalPages}</p>}
+        {totalPages && <p className="fw-bold mb-0">page {page} of {totalPages}</p>}
         <button 
             onClick={()=>{updatePage(1)}}
             className={`btn border rounded-2 ms-2 p-0 ${page >= totalPages ? 'invisible' : ''}`}
