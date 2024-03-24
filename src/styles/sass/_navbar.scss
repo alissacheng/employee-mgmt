@@ -4,7 +4,7 @@ nav.navbar {
   width: 100%;
   left: 0;
   z-index: 10;
-  border-bottom: 1px solid $gray-400;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.25);
 
   h1 + p {
     display: none;
@@ -81,7 +81,7 @@ nav.navbar {
   }
 
   @media(min-width: 992px){
-    border: none;
+    box-shadow: none;
     position: static;
 
     h1 + p {

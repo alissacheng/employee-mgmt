@@ -2,7 +2,7 @@ const sortByName =  (array) => {
   return array.sort((a, b) => {
       const nameA = a.name.toUpperCase();
       const nameB = b.name.toUpperCase();
-  
+      // Sort object by name value alphabetically
       if (nameA < nameB) {
           return -1;
       }

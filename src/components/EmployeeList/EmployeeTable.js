@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Pagination from "../Pagination"
 import OneEmployee from "./OneEmployee"
-import employeeFormInputData from "../../lib/employeeFormInputData";
+import employeeFormInputData from "../../data/employeeFormInputData";
 
 const EmployeeTable = ({ employees, handleDelete, searchInput }) => {
   const [page, setPage] = useState(1)

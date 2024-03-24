@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import Papa from 'papaparse';
-import UserContext from "../../lib/UserContext";
+import UserContext from "../../utils/UserContext";
 import SearchFilter from "../SearchFilter";
 import EmployeeTable from "./EmployeeTable";
 import DeleteModal from "../DeleteModal";
@@ -12,6 +12,7 @@ const EmployeeList = () => {
     const [employees, setEmployees] = useState([])
     const [deleteEmployee, setDeleteEmployee] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
+    const [fetchError, setFetchError] = useState(false)
 
     const fetchEmployees = async () => {
         try {
@@ -28,7 +29,8 @@ const EmployeeList = () => {
                 }
             });
         } catch (error) {
-            console.error('Error fetching data:', error);
+            setFetchError("An error has occured and we were unable to fetch the employee list. Please try again later.");
+            setIsLoading(false);
         }
     }
 
@@ -37,7 +39,6 @@ const EmployeeList = () => {
     }, [])
 
     const submitDelete = () => {
-        console.log("click")
         setAllEmployees(
             allEmployees.filter((employee)=> employee.id !== deleteEmployee.id)
         );
@@ -50,19 +51,21 @@ const EmployeeList = () => {
                 updateSearch={(input)=>setSearchInput(input)}
                 updateEmployees={(list)=>setEmployees(sortByName(list))}
             />
-            {isLoading ?
+            {isLoading &&
                 <div className="d-flex justify-content-center my-5">
                     <div class="spinner-border custom-spinner" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
                 </div>
-                  :
+            }
+            {!isLoading && !fetchError &&
                 <EmployeeTable
                     searchInput={searchInput}
                     employees={employees}
                     handleDelete={(id, name)=>setDeleteEmployee({id, name})}
                 />
             }
+            {fetchError && <h3 className="text-center my-5 fs-4">{fetchError}</h3>}
             <DeleteModal 
                 name={deleteEmployee.name ?? ''}
                 cancel={()=>setDeleteEmployee(false)}

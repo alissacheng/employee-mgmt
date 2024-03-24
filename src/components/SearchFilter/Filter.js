@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
-import departmentList from "../../lib/departmentList";
+import departmentList from "../../data/departmentList";
 
 const Filter = ({ handleCheck, checkedItems }) => {
     const [open, setOpen] = useState(false)
 
     useEffect(()=>{
-        const exitFilter = function(event) {
+        const closeFilter = function(event) {
+            // Close filter popup when user clicks anywhere else on page
             const filter = document.getElementById("filter")
             if (!filter.contains(event.target)) {
                 setOpen(false);
-                document.removeEventListener('click', exitFilter);
+                document.removeEventListener('click', closeFilter);
             }
         };
-        if(open) document.addEventListener('click', exitFilter);
-
+        if(open) document.addEventListener('click', closeFilter);
+        // Remove event listener when component unmounts
         return () => {
-            document.removeEventListener('click', exitFilter);
+            document.removeEventListener('click', closeFilter);
         }
     }, [open])
 

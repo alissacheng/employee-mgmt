@@ -1,7 +1,7 @@
 import { useState, useContext } from "react"
 
-import UserContext from "../../lib/UserContext"
-import employeeFormInputData from "../../lib/employeeFormInputData"
+import UserContext from "../../utils/UserContext"
+import employeeFormInputData from "../../data/employeeFormInputData"
 import TextInput from "./TextInput"
 import SelectInput from "./SelectInput"
 import validateForm from "../../utils/validateForm"
@@ -28,9 +28,10 @@ const EmployeeForm = () => {
         if(!firstSubmit) setFirstSubmit(true)
 
         if(validateForm(allEmployees, formData, setFormErr)){
+            // Get the last employee id and add one for new employee id
             const lastEmployee = allEmployees[allEmployees.length - 1];
             const id = lastEmployee ? lastEmployee.id + 1 : 1;
-        
+            // Add new employee to state and clear all data from component before exiting
             setAllEmployees([...allEmployees, { ...formData, id }]);
             setFormData({});
             setFormErr({});

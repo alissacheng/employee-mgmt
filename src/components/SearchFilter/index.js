@@ -1,6 +1,6 @@
 import { useState, useContext, useCallback, useEffect } from "react"
 import Search from "./Search"
-import UserContext from "../../lib/UserContext";
+import UserContext from "../../utils/UserContext";
 import Filter from "./Filter";
 import filteredEmployees from "../../utils/filteredEmployees";
 import CancelFilters from "./CancelFilters";

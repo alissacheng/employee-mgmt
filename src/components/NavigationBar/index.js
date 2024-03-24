@@ -1,17 +1,13 @@
 import {useContext, useState} from 'react';
-import UserContext from '../../lib/UserContext';
+import UserContext from '../../utils/UserContext';
 
 const NavigationBar = () => {
   const {setNewEmployee, allEmployees} = useContext(UserContext);
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
-  };
-
   const arrayToCSV = (arr) => {
     const csv = arr.map(row => {
-        Object.values(row).join(',')
+      return Object.values(row).join(',')
     }).join('\n');
     return csv;
   }
@@ -40,7 +36,7 @@ const NavigationBar = () => {
         aria-controls="navbarNav" 
         aria-expanded="false" 
         aria-label="Toggle navigation"
-        onClick={toggleNav}
+        onClick={()=>setIsNavOpen(!isNavOpen)}
       >
         <span className="border-bottom-1 d-block"></span>
         <span className="border-bottom-1"></span>
@@ -58,7 +54,8 @@ const NavigationBar = () => {
           </li>
           <li className='nav-item'>
             <a 
-              className='btn btn-light border mt-2 mt-lg-0' 
+              className='btn btn-light border mt-2 mt-lg-0'
+              href='/'
               onClick={handleDownload} 
               id="export"
             >
