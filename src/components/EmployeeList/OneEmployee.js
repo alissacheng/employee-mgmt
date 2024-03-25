@@ -1,8 +1,10 @@
 const OneEmployee = ({ employee, handleDelete, searchInput }) => {
-    const indexOfBoldPart = employee.name.toLowerCase().indexOf(searchInput.toLowerCase());
+    const indexOfSearch = employee.name.toLowerCase().indexOf(searchInput.toLowerCase());
+    const indexOfBoldPart = indexOfSearch === 0 ? 0 : employee.name.toLowerCase().indexOf(" " + searchInput.toLowerCase())
     const beforeBold = employee.name.slice(0, indexOfBoldPart);
-    const boldPart = employee.name.slice(indexOfBoldPart, indexOfBoldPart + searchInput.length);
-    const afterBold = employee.name.slice(indexOfBoldPart + searchInput.length);
+    const searchLength = indexOfBoldPart === 0 ? searchInput.length : 1 + searchInput.length
+    const boldPart = employee.name.slice(indexOfBoldPart, indexOfBoldPart + searchLength);
+    const afterBold = employee.name.slice(indexOfBoldPart + searchLength);
 
     return(
         <tr>
