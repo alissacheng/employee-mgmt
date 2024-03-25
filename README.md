@@ -20,7 +20,7 @@ To set up and run the application locally, follow these steps:
 - To add a new employee, click on the "Add Employee" button in the navigation bar and fill in the required details in the form.
 - To delete an existing employee, click on the delete icon next to the employee's information under "Actions". A popup will appear asking you to verifiy that you want to delete the employee you have selected.
 - You can filter employees by department using the dropdown menu provided in the top left corner. Remove the filters by toggling the checkmarks in the dropdown menu or by clicking the cancel filter button below the search bar.
-- To search for a specific employee by name, use the search bar located at the top of the dashboard. Your search results will populate immediately while you are typing.
+- To search for a specific employee by name, use the search bar located at the top of the dashboard. Your search results will populate immediately while you are typing. You can search by first name, last name or full name.
 
 ## Technologies Used
 
